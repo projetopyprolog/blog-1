@@ -1,5 +1,16 @@
 /* src/pages/css/post.css */
 
+.container-post {
+  display: flex;
+  max-width: 1200px;
+  align-content: center;
+}
+
+.main-post {
+  width: 76.6%;
+  padding-right: 20px;
+}
+
 .header-main {
   display: flex;
   align-items: center;
@@ -36,53 +47,42 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.post-details h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-  
-  .post-details h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .status {
-    display: flex;
-    align-items: center;
-  }
-  
-  .circulo-status {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .circulo-status.dead {
-    background-color: red;
-  }
-  
-  .circulo-status.alive {
-    background-color: green;
-  }
-  
-  .post-details p {
-    color: #555;
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-  
-  .post-details img {
-    border-radius: 5px;
-  }
-  
-  .side-container {
-    width: 200px;
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .comment-container {
-    margin-top: 20px;
-  }
-  
+.status {
+  display: flex;
+  align-items: center;
+}
+
+.circulo-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.circulo-status.dead {
+  background-color: red;
+}
+
+.circulo-status.alive {
+  background-color: green;
+}
+
+.post-details p {
+  color: #555;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.post-details img {
+  border-radius: 5px;
+}
+
+.comment-container {
+  margin-top: 20px;
+}

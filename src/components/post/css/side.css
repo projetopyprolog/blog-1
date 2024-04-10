@@ -1,9 +1,11 @@
 /* src/components/post/css/side.jsx */
 
 .sidebar-right {
-  background-color: #f8f9fa;
+  width: 23.3%;
+  background-color: #3f3f3f;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-right h2 {
@@ -17,7 +19,7 @@
 }
 
 .post-card {
-  background-color: #fff;
+  background-color: #2f2f2f94;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -31,7 +33,6 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-
 
 .post-content {
   padding: 10px;

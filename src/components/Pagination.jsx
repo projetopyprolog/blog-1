@@ -1,14 +1,15 @@
 // src/components/Pagination.jsx
 
-import "./css/pagination.css"
+import React from "react";
+import "./css/pagination.css";
 
-const Pagination = ({ prevPage, nextPage }) => {
+const Pagination = ({ prevPage, nextPage, currentPage }) => {
   return (
     <div>
-      {prevPage && <button onClick={prevPage}>Previous Page</button>}
-      {nextPage && <button onClick={nextPage}>Next Page</button>}
+      {currentPage > 1 && <button onClick={prevPage}>Previous Page</button>}
+      <button onClick={nextPage}>Next Page</button>
     </div>
   );
-}
+};
 
 export default Pagination;

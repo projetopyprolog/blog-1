@@ -30,7 +30,7 @@ const Side = () => {
       <ul>
         {posts.map(post => (
           <li key={post.id}>
-            <Link to={`/blog/post/${post.id}`}>
+            <Link to={`/post/${post.id}`}>
               <div className="post-card">
                 <img src={post.image} alt={post.name} />
                 <div className="post-content">

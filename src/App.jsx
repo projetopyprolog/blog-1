@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
-import Contact from "./pages/Contact.jsx"
+import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
 import Post from "./pages/Post.jsx";
-import Header from "./components/Header.jsx"
-import Footer from "./components/Footer.jsx"
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import "./App.css";
 
 export default function App() {
   return (
@@ -12,13 +13,13 @@ export default function App() {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route exact path="blog/" element={<Home />}/>
-          <Route exact path="/blog/contact" element={<Contact />}/>
-          <Route exact path="/blog/about" element={<About />}/>
-          <Route path="/blog/post/:id" element={<Post />}/>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/about" element={<About />} />
+          <Route path="/post/:id" element={<Post />} />
         </Routes>
       </BrowserRouter>
-      <Footer/>
+      <Footer />
     </>
   );
 }

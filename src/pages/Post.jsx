@@ -2,9 +2,9 @@
 
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "./css/post.css";
 import Side from "../components/post/Side";
 import Comment from "../components/post/Comment";
+import "./css/post.css";
 
 export default function Post() {
   const { id } = useParams();
@@ -26,26 +26,30 @@ export default function Post() {
   }
 
   const getStatusColor = () => {
-    if (post.status === 'Dead') {
-      return 'dead';
-    } else if (post.status === 'Alive') {
-      return 'alive';
+    if (post.status === "Dead") {
+      return "dead";
+    } else if (post.status === "Alive") {
+      return "alive";
     } else {
-      return '';
+      return "";
     }
   };
 
   return (
-    <article className="container">
-      <div className="main">
+    <article className="container-post">
+      <div className="main-post">
         <div className="header-main card">
           <figure className="post-img">
-            <img src={post.image} alt={"Imagem de " + post.name} className="img-fluid" />
+            <img
+              src={post.image}
+              alt={"Imagem de " + post.name}
+              className="img-fluid"
+            />
           </figure>
           <div className="post-details">
             <h2>{post.name}</h2>
-            <div className={`status ${getStatusColor()}`}>
-              <div className="circulo-status"></div>
+            <div className="status">
+              <div className={`circulo-status ${getStatusColor()}`}></div>
               <p>{post.status}</p>
             </div>
             <p>Specie: {post.species}</p>
@@ -55,9 +59,9 @@ export default function Post() {
             {post.location && <p>Localidade: {post.location.name}</p>}
           </div>
         </div>
-        <Side />
+        <Comment />
       </div>
-      <Comment />
+      <Side />
     </article>
   );
 }

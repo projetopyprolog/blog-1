@@ -1,8 +1,8 @@
 // src/components/BlogPost.jsx
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import "./css/blogpost.css";
 
 const BlogPost = ({ page }) => {
@@ -13,11 +13,13 @@ const BlogPost = ({ page }) => {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get(`https://rickandmortyapi.com/api/character?page=${page}`);
+        const response = await axios.get(
+          `https://rickandmortyapi.com/api/character?page=${page}`,
+        );
         setCharacters(response.data.results);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching characters:', error);
+        console.error("Error fetching characters:", error);
       }
     };
 
@@ -29,20 +31,24 @@ const BlogPost = ({ page }) => {
       const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
       if (scrollTop + clientHeight >= scrollHeight) {
         const nextPage = page + 1;
-        axios.get(`https://rickandmortyapi.com/api/character?page=${nextPage}`)
-          .then(response => {
+        axios
+          .get(`https://rickandmortyapi.com/api/character?page=${nextPage}`)
+          .then((response) => {
             const newCharacters = response.data.results;
-            setCharacters(prevCharacters => [...prevCharacters, ...newCharacters]);
+            setCharacters((prevCharacters) => [
+              ...prevCharacters,
+              ...newCharacters,
+            ]);
           })
-          .catch(error => console.error('Error fetching characters:', error));
+          .catch((error) => console.error("Error fetching characters:", error));
       }
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [characters]);
 
@@ -51,27 +57,30 @@ const BlogPost = ({ page }) => {
   }
 
   return (
-    <div className='container-card' ref={containerRef}>
+    <div className="container-card" ref={containerRef}>
       <h1>Characters</h1>
-      <ul className='container'>
-        {characters.map(character => (
-          <Link to={"/blog/post/" + character.id} key={character.id}>
-            <li className='caracterCard'>
-              <article>
-                <figure className='caracterCard-img'>
-                  <img src={character.image} alt={character.name} />
-                </figure>
-                <div className='caracterCard-content'>
-                  <h3>{character.name}</h3>
-                  <p>Status: {character.status}</p>
-                  <p>Species: {character.species}</p>
-                  <p>Type: {character.type}</p>
-                  <p>Gender: {character.gender}</p>
-                </div>
-              </article>
-            </li>
-          </Link>
-        ))}
+      <ul className="container">
+        {characters
+          .map((character) => (
+            <Link to={"post/" + character.id} key={character.id}>
+              <li className="caracterCard">
+                <article>
+                  <figure className="caracterCard-img">
+                    <img src={character.image} alt={character.name} />
+                  </figure>
+                  <div className="caracterCard-content">
+                    <h3>{character.name}</h3>
+                    <p>Status: {character.status}</p>
+                    <p>Species: {character.species}</p>
+                    <p>Type: {character.type}</p>
+                    <p>Gender: {character.gender}</p>
+                  </div>
+                </article>
+              </li>
+            </Link>
+          ))
+          .slice(0, 20)}{" "}
+        {/* Mostra os 10 primeiros caracteres */}
       </ul>
     </div>
   );
